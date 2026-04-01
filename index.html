@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown</title>
   <style>
+    @font-face {
+      font-family: 'SF Pro Display';
+      src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #fff;
@@ -12,7 +18,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      font-family: 'Hedvig Letters Sans', sans-serif;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     #countdown {
       color: #000;
@@ -20,11 +26,9 @@
       font-weight: 400;
       white-space: nowrap;
       text-align: center;
+      letter-spacing: -1px;
     }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="countdown"></div>
