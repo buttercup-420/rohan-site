@@ -15,22 +15,40 @@
     body {
       background: #fff;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #000;
     }
     #countdown {
-      color: #000;
-      font-size: clamp(16px, 3.9vw, 100px);
+      font-size: clamp(18px, 3vw, 92px);
       font-weight: 400;
       white-space: nowrap;
       text-align: center;
+    }
+    #notify {
+      position: absolute;
+      bottom: 18%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: clamp(12px, 1.3vw, 40px);
+      font-weight: 400;
+      text-align: center;
+    }
+    #notify a {
+      color: #000;
+      text-decoration: underline;
+      text-decoration-color: rgba(0, 0, 0, 0.35);
+    }
+    #notify span {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <div id="countdown"></div>
+  <p id="notify"><a href="notify.html">Get notified</a><span> on release.</span></p>
   <script>
     const target = new Date('2026-05-30T00:00:00').getTime();
 
@@ -39,7 +57,7 @@
       let diff = target - now;
 
       if (diff <= 0) {
-        document.getElementById('countdown').textContent = '00:00:00:00 MAY 30 2026';
+        document.getElementById('countdown').innerHTML = '00 : 00 : 00 : 00&emsp;&emsp;MAY 30 2026';
         return;
       }
 
@@ -51,8 +69,8 @@
       diff %= 60000;
       const secs = String(Math.floor(diff / 1000)).padStart(2, '0');
 
-      document.getElementById('countdown').textContent =
-        `${days}:${hours}:${mins}:${secs} MAY 30 2026`;
+      document.getElementById('countdown').innerHTML =
+        `${days} : ${hours} : ${mins} : ${secs}&emsp;&emsp;MAY 30 2026`;
 
       requestAnimationFrame(update);
     }
