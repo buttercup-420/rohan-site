@@ -12,6 +12,7 @@
       font-style: normal;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow: hidden; height: 100vh; }
     body {
       background: #fff;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -134,7 +135,13 @@
           })
         });
         signup.textContent = 'Thank You.';
+        sessionStorage.setItem('submitted', 'true');
       });
+
+      if (sessionStorage.getItem('submitted')) {
+        sessionStorage.removeItem('submitted');
+        window.location.href = '/';
+      }
     </script>
   </div>
   <footer>
