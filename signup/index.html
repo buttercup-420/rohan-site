@@ -135,12 +135,12 @@
           })
         });
         signup.textContent = 'Thank You.';
-        sessionStorage.setItem('submitted', 'true');
+        localStorage.setItem('submitted', 'true');
       });
 
-      if (sessionStorage.getItem('submitted')) {
-        sessionStorage.removeItem('submitted');
-        window.location.href = '/';
+      if (localStorage.getItem('submitted')) {
+        localStorage.removeItem('submitted');
+        window.location.replace('/');
       }
     </script>
   </div>
